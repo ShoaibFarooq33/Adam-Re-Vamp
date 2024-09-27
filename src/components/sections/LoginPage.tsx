@@ -51,7 +51,6 @@ const LoginPage = ({ isLoggedIn, setIsLoggedIn }) => {
       setError("");
     }
   };
-  console.log("userExist", userExist);
 
   const handleContinueButton = async () => {
     checkUser(email);
@@ -97,11 +96,9 @@ const LoginPage = ({ isLoggedIn, setIsLoggedIn }) => {
   };
 
   const handleSignUp = () => {
-    console.log("handle Sign Up ");
     navigate("/sign-up");
   };
 
-  console.log("open ", open);
 
   return (
     <React.Fragment>
