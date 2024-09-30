@@ -9,23 +9,29 @@ const ConversationHistory = ({
   showStartPage,
   setShowStartPage,
 }: ConversationHistoryProps) => {
-  const { data, error, isLoading } = useUserConversations();
+  const { data, error, isLoading, refetch } = useUserConversations();
   const {
     mutate,
     data: conversationData,
     isLoading: isLoadingConversatiion,
   } = fetchConversationById();
-  // let cleanResponse = await cleanCode(conversationData.)
+  // let cleanResponse = await cleanCode(conversationData)
   const { today, yesterday, previous30Days, older } = categorizeConversations(
     data || []
   );
-  if (isLoadingConversatiion) return <div>Loading...</div>;
+
+  useEffect(() => {
+    refetch();
+  }, []);
+
+  if (isLoading) return <div>Loading...</div>;
   if (error) return <div></div>;
 
   const handleGetConversation = (conversationId: string) => {
     mutate(conversationId);
     setShowStartPage(!showStartPage);
   };
+
   return (
     <div className="max-h-[80vh] p-4">
       {today?.length > 0 && (

@@ -49,6 +49,16 @@ const ViewPanel = ({
     setSuggestions(messages?.messages[0].suggestions);
   }, [singleConversation, messages]);
 
+  useEffect(() => {
+    fetch("/box.stl")
+      .then((response) => response.arrayBuffer())
+      .then((data) => {
+        // Handle the STL data (you may use it with Three.js or other libraries)
+        console.log("data", data);
+      })
+      .catch((error) => console.error("Error loading STL file:", error));
+  }, []);
+
   const handelPrev = () => {
     console.log("handelPrev ");
     setIndexValue(indexValue - 1);
@@ -66,7 +76,7 @@ const ViewPanel = ({
         className="bg-[#3b3939]"
         showSidebar={showSidebar}
       />
-      <div className="flex-1 flex flex-col justify-center ml-10 text-left overflow-hidden">
+      <div className="flex-1 flex flex-col justify-center ml-10 text-left">
         <div className="flex w-full h-full">
           <React.Fragment>
             <PrevArrow
@@ -94,7 +104,7 @@ const ViewPanel = ({
               ></div>
             ))}
           </div>
-          <div className="flex flex-col justify-center items-center relative w-full ">
+          <div className="flex flex-col justify-center items-center relative w-full">
             {/* <StlViewer
               className="stl-viewer-class"
               // style={{ backgroundColor: "pink" }}
@@ -182,7 +192,7 @@ const ViewPanel = ({
         </div>
         <div className="flex mt-4 gap-2">
           {suggestions?.map((item, index) => (
-            <Suggestions Number={index} item={item} />
+            <Suggestions Number={index} item={item} key={index} />
           ))}
         </div>
       </div>

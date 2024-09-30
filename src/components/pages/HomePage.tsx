@@ -21,7 +21,6 @@ const HomePage = () => {
   const { isAuthenticated } = useSelector((state: RootState) => ({
     isAuthenticated: state?.auth?.isAuthenticated,
   }));
-
   const [showFilter, setShowFilter] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
@@ -38,7 +37,7 @@ const HomePage = () => {
   }, [isAuthenticated]);
 
   return (
-    <div className="overflow-hidden">
+    <div className="">
       <Layout
         setShowFilter={setShowFilter}
         showFilter={showFilter}
@@ -67,24 +66,20 @@ const HomePage = () => {
                 showSidebar={showSidebar}
                 setShowSidebar={setShowSidebar}
               />
-              <ResponsiveDrawer
-                setShowFilter={setShowFilter}
-                showFilter={showFilter}
-              />
             </React.Fragment>
           )}
 
           <PromptBar />
         </div>
       </Layout>
-      <Toast
+      {/* <Toast
         showToast={showToast}
         toastMessage={toastMessage}
         onClose={() => {
           setShowToast(false);
           setToastMessage({ message: "", type: "" });
         }}
-      />
+      /> */}
     </div>
   );
 };

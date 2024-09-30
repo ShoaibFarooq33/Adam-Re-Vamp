@@ -28,7 +28,7 @@ const StartPage = ({ showSidebar, setShowSidebar }: StartPageProps) => {
           </p>
         </div>
         <div className="bg-[#3b3b3b] text-white rounded-l-lg hidden sm:block">
-          <h1 className="ml-10 text-[#ffffffb8] mt-5 text-sm rounded-full">
+          <h1 className="ml-10 text-[#ffffffb8] mt-5 rounded-full">
             Start with an Object
           </h1>
           <div>

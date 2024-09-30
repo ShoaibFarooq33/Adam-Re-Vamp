@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import PromptPanel from "../sections/PromptPanel";
 import FilterPanel from "../sections/FilterPanel";
 import { LayoutProps } from "../../utils/interfaces";
+import DownaloadButton from "../atoms/DownaloadButton";
 
 const Layout: React.FC<LayoutProps> = ({
   children,
@@ -15,6 +16,8 @@ const Layout: React.FC<LayoutProps> = ({
   showFilter,
   setShowFilter,
 }) => {
+
+
   return (
     <div className="flex h-[100vh]">
       <div
@@ -34,9 +37,24 @@ const Layout: React.FC<LayoutProps> = ({
         />
       </div>
       <div className="w-[60vw] bg-[#191a1a] flex-grow">{children}</div>
-      {showFilter && (
-        <div className="w-[20vw] bg-[#212121] hidden lg:block">
+      {showFilter ? (
+        <div className="w-[350px] bg-[#212121] absolute right-0 xl:relative">
           <FilterPanel setShowFilter={setShowFilter} showFilter={showFilter} />
+        </div>
+      ) : (
+        <div className="absolute w-0 right-0 h-full block xl:hidden">
+          <img
+            src="/setting-icon-normal.svg"
+            alt="create icon"
+            className="top-[38%] fixed right-1 md:top-[38%]"
+            onClick={() => setShowFilter(!showFilter)}
+          />
+          <DownaloadButton
+            className="top-[45%] fixed right-1 md:top-[46%]"
+            onClick={() => {
+              //   downloadOutput(state);
+            }}
+          />
         </div>
       )}
     </div>
