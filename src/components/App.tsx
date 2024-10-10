@@ -8,13 +8,11 @@ import { Model } from "../state/model";
 // components
 import { AppProps } from "../utils/interfaces";
 import LandingPage from "./pages/LandingPage";
-import MainPage from "./pages/MainPage";
 import Layout from "./Layout/Layout";
 import SignUpPage from "./sections/SignUpPage";
 import ViewerPanel from "./sections/ViewerPanel";
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
-import { clearUser } from "../redux/slices/authSlice";
 
 // ---------------------------------------------------------
 

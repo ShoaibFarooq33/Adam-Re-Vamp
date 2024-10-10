@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { StlViewer } from "react-stl-viewer";
+import React from "react";
 
 const CurrentConversation = () => {
   return (
