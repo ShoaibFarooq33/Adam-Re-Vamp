@@ -9,7 +9,7 @@ import SettingsIcon from "../atoms/SettingsIcon";
 import DropDownMenu from "../atoms/DropDownMenu";
 import { clearUser } from "../../redux/slices/authSlice";
 
-const LoginUserSection = ({ isLoggedIn, setIsLoggedIn }) => {
+const LoginUserSection = ({ isLoggedIn, setIsLoggedIn }: any) => {
   const dispatch = useDispatch();
 
   const componentRef = useRef<HTMLDivElement>(null);
@@ -61,7 +61,9 @@ const LoginUserSection = ({ isLoggedIn, setIsLoggedIn }) => {
               </p>
             </div>
             <div className="pt-2">
-              <SettingsIcon />
+              <button className="aspect-square flex items-center justify-center duration-200 ease-in-out">
+                <SettingsIcon />
+              </button>
             </div>
           </div>
           {dropdownOpen && <DropDownMenu handleLogout={handleLogout} />}
